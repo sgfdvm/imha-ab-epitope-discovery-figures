@@ -25,83 +25,48 @@ medians are raw values.
 | PE histogram, pre-ghost | intact-main gate, three sera overlaid, PE 382 V | https://raw.githubusercontent.com/sgfdvm/imha-ab-epitopediscovery-figures/main/figures/2026-09-26/slide_PE_pre-ghost_382V_143930.png |
 | PE histogram, post-ghost | tight-cluster gate, three sera overlaid, PE 291 V | https://raw.githubusercontent.com/sgfdvm/imha-ab-epitopediscovery-figures/main/figures/2026-09-26/slide_PE_post-ghost_291V_143930.png |
 
-## Slide figures, common gate and shared axes (2026-09-27)
+## Slide figures, FSC-A × PE-A, per-stage axes (2026-09-27, current)
 
-Presentation versions of the FSC-A × PE-A figures. The analysis itself still uses
-per-file gates; these figures change only how the data are displayed.
+| Figure | Raw URL |
+|---|---|
+| FSC-A × PE-A, pre-ghost (PE 382 V, FSC 450 V) | https://raw.githubusercontent.com/sgfdvm/imha-ab-epitopediscovery-figures/main/figures/2026-09-27/slide_density_PE-A-vs-FSC-A_pre-ghost_PE382V_commongate_stageaxes_124050.png |
+| FSC-A × PE-A, post-ghost, events with FITC-A > 2,000 excluded (PE 291 V, FSC 500 V, FITC 432 V) | https://raw.githubusercontent.com/sgfdvm/imha-ab-epitopediscovery-figures/main/figures/2026-09-27/slide_density_PE-A-vs-FSC-A_post-ghost_PE291V_commongate_stageaxes_FITCgt2000excluded_124050.png |
 
-- **Shared axes.** All 12 panels across the four figures use the same axis limits:
-  FSC-A 10^3.57–10^7.02, SSC-A 10^3.20–10^6.56, and PE-A −2.84 to 12.81 in arcsinh(x/150)
-  display units, which is about −1,300 to 2.7 × 10^7. Each range is the union of the six
-  tubes' 0.05–99.95 percentile spans, padded 3%. Events outside the range are drawn at
-  the axis edge rather than dropped:
-  - FSC × PE: pre 29 / 6 / 10, post 2 / 4 / 0
-  - FSC × SSC: pre 64 / 41 / 17, post 3 / 4 / 2
-- **PE voltages still differ.** The PE axis has the same limits in both stages, but the
-  PMT voltage is not the same: 382 V pre-ghost and 291 V post-ghost, as the y-axis label
-  says. **Do not compare PE heights across the two figures.**
-- **One gate per stage.** Each stage has a single FSC/SSC gate, built from its three tubes
-  pooled with equal weight using the same peak / watershed / 10%-of-peak rule as the
-  per-file gates. The gate is outlined in the FSC × SSC figures and appears as blue
-  events in the PE figures. Under each panel: gated events and their % of all events.
+These are presentation versions. The analysis itself still uses per-file gates; only
+the display changes here.
+
+- **Axes are set per stage.** The three panels within a stage share identical
+  limits; the two stages do not share limits (and their PE and FSC voltages differ
+  anyway). Each range is the union of the three tubes' 0.05–99.95 percentile spans of
+  the plotted events, padded 6%. The FSC range is then widened about its centre, never
+  narrowed, until a decade is the same length on both axes (the PE axis is arcsinh,
+  so this holds above a few hundred). Events outside the range are drawn at the axis
+  edge rather than dropped: pre-ghost 42 / 10 / 13, post-ghost 1 / 1 / 0.
+  - Pre-ghost: FSC 10^3.56–10^6.09; PE about −1,300 to 26,000.
+  - Post-ghost, after the exclusion: FSC 10^3.54–10^5.89; PE about −150 to 30,000.
+- **One gate per stage.** Each stage has a single FSC/SSC gate, built from its three
+  tubes pooled with equal weight using the same peak / watershed / 10%-of-peak rule as
+  the per-file gates. Gated events are blue. The gate outlines are in the FSC × SSC
+  figures listed in the superseded section below; the gates themselves are unchanged.
+  Under each panel: gated events and their % of the events plotted.
 - **One threshold per stage.** The dashed line is the no-serum tube's 95th percentile
-  within the common gate, at the same height in every panel of that stage. Headers
-  show the gated median.
+  within the common gate, at the same height in all three panels of that stage: 152
+  pre-ghost, 624 post-ghost (with the exclusion). The key is in the bottom-left corner,
+  and headers show the gated median.
+- **Post-ghost exclusion.** Events with FITC-A > 2,000 are dropped before the
+  threshold, medians, gated counts, axis range and the plot are computed: 1,218 of 5,032
+  events for IMHA (24.2%), 1,201 of 6,230 for healthy (19.3%) and 1,370 of 4,554 for no
+  serum (30.1%). The bottom-right corner of the figure states this.
+- **The FITC cut works as a PE ceiling.** In all three tubes, FITC/PE settles at 0.10
+  for events brighter than about 10,000. That is consistent with uncompensated PE
+  spilling into the FITC detector. Real anti-IgG / SA-PE staining of intact cells shows
+  the same proportionality: 0.018–0.021 in the pre-ghost IMHA tube, at PE 382 V. So
+  FITC-A > 2,000 works as a PE cap. The brightest event kept is PE 21,016 / 20,916 /
+  21,733, and everything brighter is removed whatever it is. The case for treating
+  these events as non-antibody is that they are most frequent in the no-serum tube,
+  not their FITC/PE ratio.
 
-| Figure | Raw URL |
-|---|---|
-| FSC-A × PE-A, pre-ghost (PE 382 V, FSC 450 V) | https://raw.githubusercontent.com/sgfdvm/imha-ab-epitopediscovery-figures/main/figures/2026-09-27/slide_density_PE-A-vs-FSC-A_pre-ghost_PE382V_commongate_sharedaxes_122903.png |
-| FSC-A × PE-A, post-ghost (PE 291 V, FSC 500 V) | https://raw.githubusercontent.com/sgfdvm/imha-ab-epitopediscovery-figures/main/figures/2026-09-27/slide_density_PE-A-vs-FSC-A_post-ghost_PE291V_commongate_sharedaxes_122903.png |
-| FSC-A × SSC-A, pre-ghost, common gate outlined (FSC 450 / SSC 240 V) | https://raw.githubusercontent.com/sgfdvm/imha-ab-epitopediscovery-figures/main/figures/2026-09-27/slide_density_SSC-A-vs-FSC-A_pre-ghost_FSC450V-SSC240V_commongate_sharedaxes_122903.png |
-| FSC-A × SSC-A, post-ghost, common gate outlined (FSC 500 / SSC 255 V) | https://raw.githubusercontent.com/sgfdvm/imha-ab-epitopediscovery-figures/main/figures/2026-09-27/slide_density_SSC-A-vs-FSC-A_post-ghost_FSC500V-SSC255V_commongate_sharedaxes_122903.png |
-
-Common gate compared with per-file gate. Medians are raw PE values. The threshold is
-the no-serum 95th percentile within the common gate: 152 pre-ghost, 102,295 post-ghost.
-
-| Stage | Tube | Gated, common (%) | Gated, per-file | Median, common | Median, per-file | % above threshold |
-|---|---|---|---|---|---|---|
-| pre-ghost, 382 V | IMHA 9030 | 132,743 (66.4) | 131,917 | 428 | 424 | 62.9 |
-| pre-ghost, 382 V | Healthy 9046 | 131,912 (66.0) | 131,830 | −4 | −4 | 6.4 |
-| pre-ghost, 382 V | No serum | 136,559 (68.3) | 137,825 | 11 | 11 | 5.0 |
-| post-ghost, 291 V | IMHA 9030 | 1,447 (28.8) | 1,366 | 304 | 302 | 0.1 |
-| post-ghost, 291 V | Healthy 9046 | 2,576 (41.3) | 2,338 | 260 | 258 | 0.4 |
-| post-ghost, 291 V | No serum | 773 (17.0) | 633 | **271** | **203** | 5.0 |
-
-The post-ghost threshold (102,295) is set by a bright component, not by background
-staining. 176 of the 773 gated no-serum events (23%) belong to that component
-(FITC-A > 2,000), and it also appears in the serum tubes. The line therefore marks
-the edge of that component rather than a cutoff for antibody binding. The next
-figure excludes the component.
-
-**Why the post-ghost no-serum median is 271 with the pooled gate and 203 with the
-per-file gate.** The pooled gate takes in more of the bright component than the
-per-file gate did. Of the no-serum tube's gated events, 176 of 773 in the pooled
-gate have FITC-A > 2,000, against 68 of 633 in the per-file gate. With those events
-excluded, the two medians are 182 (pooled) and 173 (per-file).
-
-### Post-ghost FSC-A × PE-A with the bright component excluded
-
-| Figure | Raw URL |
-|---|---|
-| FSC-A × PE-A, post-ghost, events with FITC-A > 2,000 excluded (PE 291 V, FSC 500 V, FITC 432 V) | https://raw.githubusercontent.com/sgfdvm/imha-ab-epitopediscovery-figures/main/figures/2026-09-27/slide_density_PE-A-vs-FSC-A_post-ghost_PE291V_commongate_sharedaxes_FITCgt2000excluded_123643.png |
-
-- **What was excluded.** Events with FITC-A > 2,000 are dropped before the threshold,
-  medians, gated counts and the plot are computed: 1,218 of 5,032 events for IMHA
-  (24.2%), 1,201 of 6,230 for healthy (19.3%) and 1,370 of 4,554 for no serum (30.1%).
-  The note in the bottom-right corner of the figure says so.
-- **What stays the same.** The common gate and the shared axes are unchanged; the
-  gate is the one built from all events and outlined in the post-ghost FSC × SSC
-  figure above. Gated % under each panel is of the events left after exclusion.
-- **The cut works as a PE ceiling.** In all three tubes, FITC/PE settles at 0.10 for
-  events brighter than about 10,000. That is consistent with uncompensated PE
-  spilling into the FITC detector. Real anti-IgG / SA-PE staining of intact cells
-  shows the same proportionality: 0.018–0.021 in the pre-ghost IMHA tube, at PE
-  382 V. So FITC-A > 2,000 works as a PE cap. The brightest event kept is PE 21,016 /
-  20,916 / 21,733, and everything brighter is removed whatever it is. The case for
-  treating these events as non-antibody is that they are most frequent in the
-  no-serum tube, not their FITC/PE ratio.
-
-Common gate, with and without the exclusion. The line is the no-serum 95th
+Post-ghost, common gate, with and without the exclusion. The line is the no-serum 95th
 percentile within the gate: 102,295 without the exclusion, 624 with it.
 
 | Tube | Median, all events | Median, excluded | % above line, all events | % above line, excluded |
@@ -109,6 +74,47 @@ percentile within the gate: 102,295 without the exclusion, 624 with it.
 | IMHA 9030 | 304 | 288 | 0.1 | 8.3 |
 | Healthy 9046 | 260 | 254 | 0.4 | 4.0 |
 | No serum | 271 | 182 | 5.0 | 5.0 |
+
+Pre-ghost, common gate (no exclusion; FITC-A > 2,000 is at most 3 events per
+pre-ghost tube). The line is 152.
+
+| Tube | Gated (%) | Median | % above line |
+|---|---|---|---|
+| IMHA 9030 | 132,743 (66.4) | 428 | 62.9 |
+| Healthy 9046 | 131,912 (66.0) | −4 | 6.4 |
+| No serum | 136,559 (68.3) | 11 | 5.0 |
+
+**Why the post-ghost no-serum median is 271 with the pooled gate and 203 with the
+per-file gate.** The pooled gate takes in more of the bright component than the
+per-file gate did. Of the no-serum tube's gated events, 176 of 773 in the pooled gate
+have FITC-A > 2,000, against 68 of 633 in the per-file gate. With those events
+excluded, the two medians are 182 (pooled) and 173 (per-file).
+
+Common gate compared with per-file gate, all events, both stages:
+
+| Stage | Tube | Gated, common | Gated, per-file | Median, common | Median, per-file |
+|---|---|---|---|---|---|
+| pre-ghost, 382 V | IMHA 9030 | 132,743 | 131,917 | 428 | 424 |
+| pre-ghost, 382 V | Healthy 9046 | 131,912 | 131,830 | −4 | −4 |
+| pre-ghost, 382 V | No serum | 136,559 | 137,825 | 11 | 11 |
+| post-ghost, 291 V | IMHA 9030 | 1,447 | 1,366 | 304 | 302 |
+| post-ghost, 291 V | Healthy 9046 | 2,576 | 2,338 | 260 | 258 |
+| post-ghost, 291 V | No serum | 773 | 633 | 271 | 203 |
+
+## Superseded 2026-09-27 versions (one axis range across both stages)
+
+These use a single FSC, SSC and PE range for all panels of both stages. The
+post-ghost bright component reaches 2.7 × 10⁷, which pushed the PE ceiling to 10⁷ for
+the pre-ghost panels too and left most of each plot empty. The FSC × SSC figures are
+still the reference for what the common gates look like.
+
+| Figure | Raw URL |
+|---|---|
+| FSC-A × PE-A, pre-ghost | https://raw.githubusercontent.com/sgfdvm/imha-ab-epitopediscovery-figures/main/figures/2026-09-27/slide_density_PE-A-vs-FSC-A_pre-ghost_PE382V_commongate_sharedaxes_122903.png |
+| FSC-A × PE-A, post-ghost, all events | https://raw.githubusercontent.com/sgfdvm/imha-ab-epitopediscovery-figures/main/figures/2026-09-27/slide_density_PE-A-vs-FSC-A_post-ghost_PE291V_commongate_sharedaxes_122903.png |
+| FSC-A × PE-A, post-ghost, FITC-A > 2,000 excluded | https://raw.githubusercontent.com/sgfdvm/imha-ab-epitopediscovery-figures/main/figures/2026-09-27/slide_density_PE-A-vs-FSC-A_post-ghost_PE291V_commongate_sharedaxes_FITCgt2000excluded_123643.png |
+| FSC-A × SSC-A, pre-ghost, common gate outlined (FSC 450 / SSC 240 V) | https://raw.githubusercontent.com/sgfdvm/imha-ab-epitopediscovery-figures/main/figures/2026-09-27/slide_density_SSC-A-vs-FSC-A_pre-ghost_FSC450V-SSC240V_commongate_sharedaxes_122903.png |
+| FSC-A × SSC-A, post-ghost, common gate outlined, all events (FSC 500 / SSC 255 V) | https://raw.githubusercontent.com/sgfdvm/imha-ab-epitopediscovery-figures/main/figures/2026-09-27/slide_density_SSC-A-vs-FSC-A_post-ghost_FSC500V-SSC255V_commongate_sharedaxes_122903.png |
 
 ## Analysis figures
 
