@@ -68,9 +68,47 @@ the no-serum 95th percentile within the common gate: 152 pre-ghost, 102,295 post
 | post-ghost, 291 V | No serum | 773 (17.0) | 633 | **271** | **203** | 5.0 |
 
 The post-ghost threshold (102,295) is set by a bright component, not by background
-staining. 176 of the 773 gated no-serum events (23%) sit in the FITC/PE-bright
-component, and that component also appears in the serum tubes. The line therefore
-marks the edge of that component rather than a cutoff for antibody binding.
+staining. 176 of the 773 gated no-serum events (23%) belong to that component
+(FITC-A > 2,000), and it also appears in the serum tubes. The line therefore marks
+the edge of that component rather than a cutoff for antibody binding. The next
+figure excludes the component.
+
+**Why the post-ghost no-serum median is 271 with the pooled gate and 203 with the
+per-file gate.** The pooled gate takes in more of the bright component than the
+per-file gate did. Of the no-serum tube's gated events, 176 of 773 in the pooled
+gate have FITC-A > 2,000, against 68 of 633 in the per-file gate. With those events
+excluded, the two medians are 182 (pooled) and 173 (per-file).
+
+### Post-ghost FSC-A × PE-A with the bright component excluded
+
+| Figure | Raw URL |
+|---|---|
+| FSC-A × PE-A, post-ghost, events with FITC-A > 2,000 excluded (PE 291 V, FSC 500 V, FITC 432 V) | https://raw.githubusercontent.com/sgfdvm/imha-ab-epitopediscovery-figures/main/figures/2026-09-27/slide_density_PE-A-vs-FSC-A_post-ghost_PE291V_commongate_sharedaxes_FITCgt2000excluded_123643.png |
+
+- **What was excluded.** Events with FITC-A > 2,000 are dropped before the threshold,
+  medians, gated counts and the plot are computed: 1,218 of 5,032 events for IMHA
+  (24.2%), 1,201 of 6,230 for healthy (19.3%) and 1,370 of 4,554 for no serum (30.1%).
+  The note in the bottom-right corner of the figure says so.
+- **What stays the same.** The common gate and the shared axes are unchanged; the
+  gate is the one built from all events and outlined in the post-ghost FSC × SSC
+  figure above. Gated % under each panel is of the events left after exclusion.
+- **The cut works as a PE ceiling.** In all three tubes, FITC/PE settles at 0.10 for
+  events brighter than about 10,000. That is consistent with uncompensated PE
+  spilling into the FITC detector. Real anti-IgG / SA-PE staining of intact cells
+  shows the same proportionality: 0.018–0.021 in the pre-ghost IMHA tube, at PE
+  382 V. So FITC-A > 2,000 works as a PE cap. The brightest event kept is PE 21,016 /
+  20,916 / 21,733, and everything brighter is removed whatever it is. The case for
+  treating these events as non-antibody is that they are most frequent in the
+  no-serum tube, not their FITC/PE ratio.
+
+Common gate, with and without the exclusion. The line is the no-serum 95th
+percentile within the gate: 102,295 without the exclusion, 624 with it.
+
+| Tube | Median, all events | Median, excluded | % above line, all events | % above line, excluded |
+|---|---|---|---|---|
+| IMHA 9030 | 304 | 288 | 0.1 | 8.3 |
+| Healthy 9046 | 260 | 254 | 0.4 | 4.0 |
+| No serum | 271 | 182 | 5.0 | 5.0 |
 
 ## Analysis figures
 
